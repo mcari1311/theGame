@@ -15,6 +15,10 @@ app.get('/', (req, res) => {
     res.send("Hello")
 })
 
+//index route 
+app.get('/items', (req, res) => {
+    res.render('Index', {items: items})
+})
 //show route 
 app.get('/items/:indexOfItemsArray', (req, res) => {
     res.render('Show', {
