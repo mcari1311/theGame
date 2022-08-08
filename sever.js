@@ -8,11 +8,19 @@ const app = express()
 app.set('view engine', 'jsx') 
 app.engine('jsx', require('express-react-views').createEngine())
 
+//import items
+const items = require('./models/items')
 
 app.get('/', (req, res) => {
     res.send("Hello")
 })
 
+//show route 
+app.get('/items/:indexOfItemsArray', (req, res) => {
+    res.render('Show', {
+        item: items[req.params.indexOfItemsArray]
+    })
+})
 
 app.listen(port, function() {
     console.log('Listening on port', port)
