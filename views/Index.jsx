@@ -15,6 +15,9 @@ class Index extends React.Component {
                         )
                     })}
                 </ul>
+                <nav>
+                    <a href="/items/new">Create a New Item</a>
+                </nav>
             </div>
         )
     }
