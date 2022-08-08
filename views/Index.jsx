@@ -4,8 +4,14 @@ class Index extends React.Component {
     render() {
         const { items } = this.props 
         return (
-            <div>
+            <html>
+                <head>
+                    <link rel="stylesheet" href="./css/index.css" />
+                    <title>Index</title>
+                </head>
+                <body>
                 <h1> Index Page </h1>
+                <div class='container'>
                 <ul>
                     {items.map((item, i) => {
                         return (
@@ -15,10 +21,12 @@ class Index extends React.Component {
                         )
                     })}
                 </ul>
+                </div>
                 <nav>
                     <a href="/items/new">Create a New Item</a>
                 </nav>
-            </div>
+                </body>
+            </html>
         )
     }
 }

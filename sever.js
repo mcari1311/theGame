@@ -11,6 +11,9 @@ app.engine('jsx', require('express-react-views').createEngine())
 //import items
 const items = require('./models/items')
 
+//for css
+app.use(express.static('public'))
+
 //middleware 
 app.use((req, res, next) => {
     console.log('I run for all routes')

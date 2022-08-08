@@ -1,0 +1,18 @@
+* {
+    background-color: burlywood;
+} 
+
+
+li {
+    height: 200px;
+    width: 300px;
+    border: black 1em solid;
+    list-style-type: none;
+    margin: 10px;
+    padding: 0;
+}
+
+.each {
+    display: flex;
+    flex-direction: column;
+}
