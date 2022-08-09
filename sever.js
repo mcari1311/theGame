@@ -1,6 +1,9 @@
 const express = require('express')
 require('dotenv').config()
 
+//mongoose
+const mongoose = require('mongoose')
+
 const port = process.env.PORT || 3003
 
 const app = express()
@@ -9,7 +12,13 @@ app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 
 //import items
-const items = require('./models/items')
+const Item = require('./models/items')
+
+//mongoose
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connection.once('open', ()=> {
+    console.log('connected to mongo');
+});
 
 //for css
 app.use(express.static('public'))
@@ -28,7 +37,12 @@ app.get('/', (req, res) => {
 
 //index route 
 app.get('/items', (req, res) => {
-    res.render('Index', {items: items})
+    // res.render('Index', {items: items})
+   Item.find({}, (error, allItems) => {
+    res.render('index', {
+        items: allItems
+    })
+   })
 })
 
 //new route NEEDS TO BE ABOVE SHOW ROUTE
@@ -38,19 +52,23 @@ app.get('/items/new', (req, res) => {
 
 //post route 
 app.post('/items', (req,res) => {
-    //push item data into items array
-    items.push(req.body)
-    // console.log(req.body) 
-    res.redirect('/items')
-})
-
-//show route 
-app.get('/items/:indexOfItemsArray', (req, res) => {
-    res.render('Show', {
-        item: items[req.params.indexOfItemsArray]
+    // //push item data into items array
+    // items.push(req.body)
+    // // console.log(req.body) 
+    // res.redirect('/items')
+    Item.create(req.body, (error, createdItem) => {
+        res.redirect('/items')
     })
 })
 
+//show route 
+app.get('/items/:id', (req, res) => {
+    Item.findById(req.params.id, (err, foundItem)=> {
+        res.render('Show', {
+            item: foundItem
+        })
+    })
+})
 
 app.listen(port, function() {
     console.log('Listening on port', port)

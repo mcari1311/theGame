@@ -40,3 +40,14 @@ img {
     height: 300px;
     width: auto;
 }
+
+.makeNew {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+
+nav {
+    text-align: center;
+}
