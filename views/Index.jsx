@@ -17,7 +17,7 @@ class Index extends React.Component {
                         return (
                             <li>
                                 <img src={item.img}></img><br />
-                                 {' '} <a href={`/items/${i}`} class='links'>{item.name}</a> {' '} Color: {item.color} <br />  Cost: {item.cost} tokens.
+                                 {' '} <a href={`/items/${i}`} class='links'>{item.name}</a> {' '} Color: {item.color} <br />  Cost: {item.cost} tokens
                             </li>
                         )
                     })}

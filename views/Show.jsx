@@ -14,7 +14,9 @@ class Show extends React.Component {
                 <h1> Show page </h1>
                 <img src={item.img} class='img'></img><br />
                 <p class='title'>  {item.name} </p> 
-                <p> <br /> Color: {item.color} <br /> Cost: {item.cost} tokens </p>
+                <p> <br /> Color: {item.color} <br /> Cost: {item.cost} tokens </p> <br />
+                <button class='buy'> BUY WITH TOKENS </button>
+
                 </div>
                 </body>
             </html>

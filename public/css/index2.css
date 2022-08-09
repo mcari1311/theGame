@@ -23,3 +23,16 @@ p {
 .container {
     text-align: center;
 }
+
+.buy {
+    color: white;
+    height: 50px;
+    width: 150px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px 0 white;
+    background-color: aqua;
+}
+
+.buy:hover {
+    background-color: red;
+}
