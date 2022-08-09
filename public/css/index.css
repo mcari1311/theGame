@@ -1,18 +1,42 @@
 * {
-    background-color: burlywood;
+    background-color: sandybrown;
+    background-image: url('https://images.unsplash.com/photo-1511882150382-421056c89033?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80');
 } 
 
+h1 {
+    color: white;
+    font-weight: 600;
+    text-align: center;
+}
+
+.links {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+}
 
 li {
-    height: 200px;
-    width: 300px;
-    border: black 1em solid;
+    height: 400px;
+    width: 350px;
+    border: white 10px solid;
     list-style-type: none;
     margin: 10px;
     padding: 0;
-}
-
-.each {
+    text-align: center;
+    color: white;
+    padding: 10px;
     display: flex;
     flex-direction: column;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+img {
+    height: 300px;
+    width: auto;
 }

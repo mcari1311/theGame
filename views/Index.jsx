@@ -11,12 +11,13 @@ class Index extends React.Component {
                 </head>
                 <body>
                 <h1> Index Page </h1>
-                <div class='container'>
+                <div className='container'>
                 <ul>
                     {items.map((item, i) => {
                         return (
                             <li>
-                                The {' '} <a href={`/items/${i}`}>{item.name}</a> {' '} is {item.color} <br /> It costs {item.cost}
+                                <img src={item.img}></img><br />
+                                 {' '} <a href={`/items/${i}`} class='links'>{item.name}</a> {' '} Color: {item.color} <br />  Cost: {item.cost} tokens.
                             </li>
                         )
                     })}
