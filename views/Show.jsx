@@ -4,10 +4,20 @@ class Show extends React.Component {
     render () {
         const item = this.props.item
         return (
-            <div>
-            <h1> Show page </h1>
-            <p> The {item.name} is {item.color}. It costs {item.cost} tokens </p>
-            </div>
+            <html>
+                <head>
+                    <link rel="stylesheet" href="/css/index2.css" />
+                    <title>Index</title>
+                </head>
+                <body>
+                <div class='container'>
+                <h1> Show page </h1>
+                <img src={item.img} class='img'></img><br />
+                <p class='title'>  {item.name} </p> 
+                <p> <br /> Color: {item.color} <br /> Cost: {item.cost} tokens </p>
+                </div>
+                </body>
+            </html>
         )
     }
 }
