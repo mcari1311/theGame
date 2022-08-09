@@ -32,7 +32,7 @@ class Show extends React.Component {
         return (
             <div>
                 <h1>Items show page</h1>
-                The { this.props.item.name } 
+                The { this.props.item.name } is {this.props.item.color}. It costs {this.props.item.cost}
             </div>
         )
     }

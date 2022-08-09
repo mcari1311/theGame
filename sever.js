@@ -31,6 +31,27 @@ app.use((req, res, next) => {
 //near the top, around other app.use() calls, view body of post request
 app.use(express.urlencoded({extended:false}));
 
+//seed route 
+app.get('/items/seed', (req, res)=> {
+    Item.create([
+        {
+            name: 'Keychain' ,
+            color: 'yellow' ,
+            cost: '2'
+        } ,
+        {
+            name: 'Mini Basketball' ,
+            color: 'orange' ,
+            cost: '2'
+        }
+    ], (err, data) => {
+        res.redirect('/items')
+    }
+    )
+})
+
+
+
 app.get('/', (req, res) => {
     res.send("Hello")
 })
