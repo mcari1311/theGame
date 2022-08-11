@@ -1,5 +1,7 @@
 const express = require('express')
 require('dotenv').config()
+//for delete
+const methodOverride = require('method-override');
 
 //mongoose
 const mongoose = require('mongoose')
@@ -7,6 +9,9 @@ const mongoose = require('mongoose')
 const port = process.env.PORT || 3003
 
 const app = express()
+app.use(methodOverride('_method'));
+
+
 //view engine
 app.set('view engine', 'jsx') 
 app.engine('jsx', require('express-react-views').createEngine())
@@ -36,13 +41,59 @@ app.get('/items/seed', (req, res)=> {
     Item.create([
         {
             name: 'Keychain' ,
-            color: 'yellow' ,
-            cost: '2'
+            color: 'Yellow' ,
+            cost: '5', 
+            img: "https://mmv2api.s3.us-east-2.amazonaws.com/products/images/Pacman_Arcade_Keychain4_LG.jpg" ,
+            count: '20' 
         } ,
         {
+            name: 'Rubix Cube' ,
+            color: 'Rainbow' ,
+            cost: '10',
+            img: 'https://media.spinmasterstudios.com/images/products/rubiks/us/778988419533/full1.jpg' ,
+            count: '12'
+        },
+        {
+            name: 'Small Teddy Bear' ,
+            color: 'Brown' ,
+            cost: '15',
+            img: 'https://www.buildabear.com/dw/image/v2/BBNG_PRD/on/demandware.static/-/Sites-buildabear-master/default/dwf655653b/26670x.jpg?sw=600&sh=600&sm=fit&q=70' ,
+            count: '12'
+        },
+        {
             name: 'Mini Basketball' ,
-            color: 'orange' ,
-            cost: '2'
+            color: 'Orange' ,
+            cost: '15',
+            img: 'https://ae01.alicdn.com/kf/H4c295a7ec5764fddbb4363b0762082a2d/Brand-new-Hot-6-3cm-Squeeze-Ball-Hand-Exerciser-Orange-Mini-Basketball-Hand-Wrist-Stress-Relief.jpg_Q90.jpg_.webp' ,
+            count: '12' 
+        },
+        {
+            name: 'iPhone Case' ,
+            color: 'Multi' ,
+            cost: '20',
+            img: 'https://i5.walmartimages.com/asr/120bb8cf-e91f-49cf-8919-fe3186637383.66c896065a684fc75f25d9e056fb3bce.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF' ,
+            count: '12' 
+        },
+        {
+            name: 'Board Game' ,
+            color: 'Multi' ,
+            cost: '50',
+            img: 'https://target.scene7.com/is/image/Target/GUEST_789f2908-208f-4f03-8fc7-4cb26296182a?wid=488&hei=488&fmt=pjpeg' ,
+            count: '12'
+        },
+        {
+            name: 'Giant Teddy Bear' ,
+            color: 'Brown' ,
+            cost: '80',
+            img: 'https://www.vermontteddybear.com/on/demandware.static/-/Sites-master-catalog-vtb/default/dw56ab5fdc/images/VTB/vtb-22832-6gianthunkalovebear-kbkf72001_detail2_20180418_1448.jpg' ,
+            count: '12'
+        },
+        {
+            name: 'iPhone' ,
+            color: 'Brown' ,
+            cost: '1,000',
+            img: 'https://i5.walmartimages.com/asr/570ae65f-0724-498e-a7c7-843fa226ad62.2214a4f891c5477d5b17134f4c1ffcf0.jpeg' ,
+            count: '12'   
         }
     ], (err, data) => {
         res.redirect('/items')
@@ -79,6 +130,38 @@ app.post('/items', (req,res) => {
     // res.redirect('/items')
     Item.create(req.body, (error, createdItem) => {
         res.redirect('/items')
+    })
+})
+
+
+//delete PLACE BELOW SHOW 
+app.delete('/items/:id', (req, res) => {
+    Item.findByIdAndRemove(req.params.id, (err, data)=> {
+        res.redirect('/items')
+    })
+    // res.send('deleting')
+})
+
+//put route
+app.put('/items/:id', (req, res) => {
+    Item.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel) => {
+        res.redirect('/items')
+    })
+})
+
+//edit route PLACE BELOW DELETE 
+app.get('/items/:id/edit', (req, res) => {
+    Item.findById(req.params.id, (err, foundItem)=> {
+        if(!err) {
+            res.render(
+                'Edit',
+                {
+                    item: foundItem
+                }
+            )
+        } else {
+            res.send({msg: err.message})
+        }
     })
 })
 

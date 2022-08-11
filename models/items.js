@@ -57,7 +57,10 @@ const mongoose= require('mongoose')
 const itemSchema = new mongoose.Schema ({
     name: { type: String, required: true} ,
     color: { type: String, required: true} ,
-    cost: { type: String, required: true}
+    cost: { type: String, required: true} ,
+    img: { type: String} , 
+    count: { type: Number, required: true}
+
 })
 
 const Item = mongoose.model('Item', itemSchema)
