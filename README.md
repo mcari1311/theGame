@@ -1,5 +1,10 @@
 # theGame
 
+### Description
+
+### Example
+
+### List of Features 
 
 ### Routes
    VERB 		 | 		  PATH 		 |  	 DESCRIPTION
@@ -11,3 +16,7 @@ PUT | /items/:id | a put request allows update |
 GET | /items/:id/edit | page to edit item |
 POST | /items/:id | initiates a post form request |
 GET | /items/:id | show the individual item |
+
+### List of Technologies Used
+
+### Future Plans 
