@@ -18,5 +18,7 @@ POST | /items/:id | initiates a post form request |
 GET | /items/:id | show the individual item |
 
 ### List of Technologies Used
+Javascript
+CSS
 
 ### Future Plans 
