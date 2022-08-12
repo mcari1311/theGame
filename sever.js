@@ -111,7 +111,7 @@ app.get('/', (req, res) => {
 app.get('/items', (req, res) => {
     // res.render('Index', {items: items})
    Item.find({}, (error, allItems) => {
-    res.render('index', {
+    res.render('Index', {
         items: allItems
     })
    })
