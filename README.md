@@ -46,3 +46,5 @@ GET | /items/:id | show the individual item |
 ### Future Plans 
 
 Due to time constraints I wasn't able to create the project I first had in mind. While working on this in the future I would love to add a game to the welcome page of the store's website. However many points the user wins will then be the amount of store credit they'd had to shop!
+
+<!-- testing -->
