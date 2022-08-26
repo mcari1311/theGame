@@ -1,5 +1,9 @@
 # theGame
 
+### Link to Website 
+https://marieacradestore.herokuapp.com/
+
+
 ### Description
 
 This project focused on creating a website linked to a database. The website had to be a type of store, so I created mine with an arcade theme. 
@@ -47,4 +51,3 @@ GET | /items/:id | show the individual item |
 
 Due to time constraints I wasn't able to create the project I first had in mind. While working on this in the future I would love to add a game to the welcome page of the store's website. However many points the user wins will then be the amount of store credit they'd had to shop!
 
-<!-- testing -->
