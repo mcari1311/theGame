@@ -104,12 +104,11 @@ app.get('/items/seed', (req, res)=> {
 
 
 app.get('/', (req, res) => {
-    res.render("Showpage")
+    res.render('Showpage')
 })
 
 //index route 
 app.get('/items', (req, res) => {
-    // res.render('Index', {items: items})
    Item.find({}, (error, allItems) => {
     res.render('Index', {
         items: allItems
@@ -124,10 +123,7 @@ app.get('/items/new', (req, res) => {
 
 //post route 
 app.post('/items', (req,res) => {
-    // //push item data into items array
-    // items.push(req.body)
-    // // console.log(req.body) 
-    // res.redirect('/items')
+    //push item data into items array
     Item.create(req.body, (error, createdItem) => {
         res.redirect('/items')
     })
@@ -139,7 +135,6 @@ app.delete('/items/:id', (req, res) => {
     Item.findByIdAndRemove(req.params.id, (err, data)=> {
         res.redirect('/items')
     })
-    // res.send('deleting')
 })
 
 //put route
