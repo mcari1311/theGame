@@ -104,7 +104,7 @@ app.get('/items/seed', (req, res)=> {
 
 
 app.get('/', (req, res) => {
-    res.send("Hello")
+    res.render("Showpage")
 })
 
 //index route 
